@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>嵩山</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/kwiks.js"></script>
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            var owl = $("#owl");
+            owl.owlCarousel({
+                items: 4, //10 items above 1000px browser width
+                itemsDesktop: [995, 3], //5 items between 1000px and 901px
+                itemsDesktopSmall: [767, 2], // betweem 900px and 601px
+                itemsTablet: [700, 2], //2 items between 600 and 0
+                itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+                navigation: true,
+            });
+        })
+        var Main = Main || {};
+        jQuery(window).load(function () {
+            window.responsiveFlag = jQuery('#responsiveFlag').css('display');
+            Main.gallery = new Gallery();
+            jQuery(window).resize(function () {
+                Main.gallery.update();
+            });
+        });
+        function Gallery() {
+            var self = this,
+                container = jQuery('.flexslider'),
+                clone = container.clone(false);
+            this.init = function () {
+                if (responsiveFlag == 'block') {
+                    var slides = container.find('.slides');
+                    slides.kwicks({
+                        max: 500,
+                        spacing: 0
+                    }).find('li > a').click(function () {
+                        return false;
+                    });
+                } else {
+                    container.flexslider();
+                }
+            }
+            this.update = function () {
+                var currentState = jQuery('#responsiveFlag').css('display');
+                if (responsiveFlag!= currentState) {
+                    responsiveFlag = currentState;
+                    container.replaceWith(clone);
+                    container = clone;
+                    clone = container.clone(false);
+                    this.init();
+                }
+            }
+            this.init();
+        }
+    </script>
+    <style>
+     .item img {
+            width: auto;
+            height: 150px;
+            transition: all 0.3s ease;
+        }
+
+        /* 鼠标悬停时放大图片 */
+     .item img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body class="page1" id="top">
+    <header>
+        <div class="clear"></div>
+        <div class="container_12">
+            <div class="grid_12">
+                <h1>
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </h1>
+                <div class="menu_block">
+                    <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                        <ul class="sf-menu">
+                            <li><a href="index.html">泰山</a></li>
+                            <li><a href="index-1.html">衡山</a></li>
+							<li><a href="index-2.html">恒山</a></li>
+                            <li class="current"><a href="index-2.html">嵩山</a></li>
+                            <li><a href="index-3.html">华山</a></li>
+                        </ul>
+                    </nav>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <!--==============================Content=================================-->
+        <div class="content">
+            <div class="ic"></div>
+            <div class="container_12">
+                <div class="grid_8">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="images/song1_1.jpg" alt="" width="595" height="310">
+                            </li>
+                            <li>
+                                <img src="images/song1_2.jpg" alt="" width="595" height="310">
+                            </li>
+                            <li>
+                                <img src="images/song1_3.jpg" alt="" width="595" height="310">
+                            </li>
+
+                        </ul>
+                    </div>
+                    <span id="responsiveFlag"></span>
+                </div>
+                <div class="grid_4">
+                    <a href="#" class="profile">简介</a>
+                    <div class="text1">中岳嵩山</div>
+                    <p>嵩山位于河南省登封市西北部，是五岳中的中岳。它是中国佛教禅宗的发源地和道教圣地，功夫之源。嵩山由太室山与少室山组成，共72峰，海拔最低为350米，最高处为1512米。其山脉东西绵延60余千米，东依省会郑州，西临古都洛阳，南依颍水，北邻黄河。嵩山是三皇五帝活动的中心，留下了许多古老的传说和历史遗迹。</p>
+                    <p>嵩山有着丰富的自然景观和人文景观。这里山峦重叠，云雾缭绕，景色壮美。山上保存有众多的古建筑，如嵩岳寺塔、少室阙、启母阙、中岳庙、会善寺、少林寺建筑群等，这些建筑历史悠久，工艺精湛，体现了古代劳动人民的智慧，吸引着无数游客前来游览。</p>
+                    <hr>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">自然景观</div>
+                        <div class="pad">
+                            嵩山自然风光秀丽，山势雄伟壮观，奇峰罗列，有的如利剑直插云霄，有的似巨人屹立不倒。山谷幽深静谧，溪流潺潺。嵩山植被丰富，古木参天，生态环境优美，山间常有云雾弥漫，仿若仙境。地质结构也是非常奇特。<div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">历史文化</div>
+                        <div class="pad">
+                            嵩山历史源远流长，文化底蕴深厚。它是华夏文明的重要发源地之一，与古代帝王祭祀、宗教发展等历史紧密相连。作为佛教禅宗和道教圣地，众多寺庙道观承载着丰富的宗教文化。而且，这里是少林武术的发祥地，少林功夫闻名世界。 <div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">人文景观</div>
+                        <div class="pad">
+                            嵩山的人文景观举世闻名。少林寺是嵩山最具代表性的人文景观之一，其建筑古朴典雅，气势恢宏，常住院、塔林等建筑各具特色，展示了深厚的佛教文化内涵。此外，少室阙、启母阙等古老的建筑遗迹，以及大量的碑刻、壁画等，都是中华民族文化瑰宝的杰出代表。<div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">旅游价值</div>
+                        <div class="pad">
+                            嵩山是极具旅游价值的胜地。游客登山可强身健体，同时欣赏到壮美景色和感受深厚文化。参观少林寺等古迹能领略古代建筑和宗教文化魅力。这里是休闲度假的好去处，能让人放松身心。其丰富文化内涵适合开展研学旅行，有助于深入了解中国传统文化和历史。 <div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_12">
+                    <h2>经典景观</h2>
+                    <div id="owl">
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/song1_4.jpg" alt="" height="170"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/song1_5.jpg" alt="" height="180"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/song1_6.jpg" alt="" height="190"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/song1_7.jpg" alt="" height="200"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="copy">
+                &copy; Copyright &copy; 2024 zz
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

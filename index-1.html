@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>衡山</title>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/slider.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-migrate-1.1.1.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/jquery.ui.totop.js"></script>
+	<script src="js/superfish.js"></script>
+	<script src="js/jquery.equalheights.js"></script>
+	<script src="js/jquery.mobilemenu.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="js/kwiks.js"></script>
+	<script>
+		$(document).ready(function () {
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			var owl = $("#owl");
+			owl.owlCarousel({
+				items: 4, //10 items above 1000px browser width
+				itemsDesktop: [995, 3], //5 items between 1000px and 901px
+				itemsDesktopSmall: [767, 2], // betweem 900px and 601px
+				itemsTablet: [700, 2], //2 items between 600 and 0
+				itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+				navigation: true,
+			});
+		})
+		var Main = Main || {};
+		jQuery(window).load(function () {
+			window.responsiveFlag = jQuery('#responsiveFlag').css('display');
+			Main.gallery = new Gallery();
+			jQuery(window).resize(function () {
+				Main.gallery.update();
+			});
+		});
+		function Gallery() {
+			var self = this,
+				container = jQuery('.flexslider'),
+				clone = container.clone(false);
+			this.init = function () {
+				if (responsiveFlag == 'block') {
+					var slides = container.find('.slides');
+					slides.kwicks({
+						max: 500,
+						spacing: 0
+					}).find('li > a').click(function () {
+						return false;
+					});
+				} else {
+					container.flexslider();
+				}
+			}
+			this.update = function () {
+				var currentState = jQuery('#responsiveFlag').css('display');
+				if (responsiveFlag != currentState) {
+					responsiveFlag = currentState;
+					container.replaceWith(clone);
+					container = clone;
+					clone = container.clone(false);
+					this.init();
+				}
+			}
+			this.init();
+		}
+	</script>
+	<style>
+		.item img {
+			 width: auto;
+			 height: 150px;
+			 transition: all 0.3s ease;
+		 }
+	 
+		 /* 鼠标悬停时放大图片 */
+		.item img:hover {
+			 transform: scale(1.2);
+		 }
+	</style>
+</head>
+
+<body class="page1" id="top">
+	<header>
+		<div class="clear"></div>
+		<div class="container_12">
+			<div class="grid_12">
+				<h1>
+					<a href="index.html">
+						<img src="images/logo.png" alt="">
+					</a>
+				</h1>
+				<div class="menu_block">
+					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+						<ul class="sf-menu">
+							<li><a href="index.html">泰山</a></li>
+							<li class="current"><a href="index-1.html">衡山</a></li>
+							<li><a href="index-2.html">恒山</a></li>
+							<li><a href="index-3.html">嵩山 </a></li>
+							<li><a href="index-4.html">华山</a></li>
+						</ul>
+					</nav>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+		<!--==============================Content=================================-->
+		<div class="content">
+			<div class="ic"></div>
+			<div class="container_12">
+				<div class="grid_8">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<img src="images/heng2_1.jpg" alt="" width="595" height="310">
+							</li>
+							<li>
+								<img src="images/heng2_2.jpg" alt="" width="595" height="310">
+							</li>
+							<li>
+								<img src="images/heng2_3.jpg" alt="" width="595" height="310">
+							</li>
+
+						</ul>
+					</div>
+					<span id="responsiveFlag"></span>
+				</div>
+				<div class="grid_4">
+					<a href="#" class="profile">简介</a>
+					<div class="text1">南岳衡山</div>
+					<p>衡山位于湖南省中部偏东南部，绵亘于衡阳、湘潭两盆地间，主体部分位于衡阳市南岳区、衡山县和衡阳县东部。衡山的命名，据战国时期《甘石星经》记载，因其位于星座二十八宿的轸星之翼，“变应玑衡”，“铨德钧物”，犹如衡器，可称天地，故名衡山。它是中国著名的道教、佛教圣地，环山有寺、庙、庵、观200多处。衡山是上古时期君王唐尧、虞舜巡疆狩猎祭祀社稷，夏禹杀马祭天地求治洪方法之地。
+					</p>
+					<p>衡山主要山峰有回雁峰、祝融峰、紫盖峰、岳麓山等，最高峰祝融峰海拔1300.2米。衡山风景区内古木参天，自然景观和人文景观并举，历来是人们旅游、避暑胜地。</p>
+					<hr>
+				</div>
+				<div class="clear"></div>
+				<div class="grid_3">
+					<div class="block2 maxheight">
+						<div class="title">自然景观</div>
+						<div class="pad">
+							衡山自然风光秀丽，四季景色各异。春观花潮，夏看烟云，秋望日出，冬赏雪景。其山势雄伟，绵延数百里，有七十二峰，峰峰秀丽，各具特色。衡山的植被丰富，森林覆盖率高，山间云雾缭绕，仿佛人间仙境。还有那奇妙的地质景观，独特的岩石造型，让人流连忘返。<div
+								class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="block2 maxheight">
+						<div class="title">历史文化</div>
+						<div class="pad">
+							衡山历史悠久，文化底蕴深厚。作为宗教圣地，道教和佛教在此传承发展，留下了众多的寺庙道观，如南岳大庙等，建筑宏伟壮观，承载着丰富的宗教文化内涵。衡山与古代帝王祭祀等活动密切相关，有着极高的历史地位。历代文人墨客也留下了大量诗词歌赋。 <div
+								class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="block2 maxheight">
+						<div class="title">人文景观</div>
+						<div class="pad">
+							衡山的人文景观独具魅力。古老的建筑遍布山间，这些建筑不仅体现了高超的建筑技艺，更融合了宗教、文化等多种元素。南岳大庙气势恢宏，规模宏大，是衡山人文景观的杰出代表。众多的碑刻、摩崖石刻等，记录了衡山的历史变迁和文化传承。 <div
+								class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="block2 maxheight">
+						<div class="title">旅游价值</div>
+						<div class="pad">
+							衡山是一个极具旅游价值的胜地。对于游客来说，无论是登山欣赏自然风光，还是参观古老的建筑和文化遗迹，都能获得独特的体验。这里是休闲度假的好去处，能让人在清幽的环境中放松身心。同时，衡山也能让游客深入了解中国传统文化和历史。 <div
+								class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="grid_12">
+					<h2>经典景观</h2>
+					<div id="owl">
+						<div class="item">
+							<a href="#" onclick="return false;"><img src="images/heng2_4.jpg" alt="" height="170"></a>
+						</div>
+						<div class="item">
+							<a href="#" onclick="return false;"><img src="images/heng2_5.jpg" alt="" height="180"></a>
+						</div>
+						<div class="item">
+							<a href="#" onclick="return false;"><img src="images/heng2_6.jpg" alt="" height="190"></a>
+						</div>
+						<div class="item">
+							<a href="#" onclick="return false;"><img src="images/heng2_7.jpg" alt="" height="200"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<!--==============================footer=================================-->
+		<footer>
+			<div class="copy">
+				&copy; Copyright &copy; 2024 zz
+			</div>
+		</footer>
+	</div>
+</body>
+
+</html>

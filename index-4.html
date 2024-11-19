@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>华山</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/kwiks.js"></script>
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            var owl = $("#owl");
+            owl.owlCarousel({
+                items: 4, //10 items above 1000px browser width
+                itemsDesktop: [995, 3], //5 items between 1000px and 901px
+                itemsDesktopSmall: [767, 2], // betweem 900px and 601px
+                itemsTablet: [700, 2], //2 items between 600 and 0
+                itemsMobile: [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+                navigation: true,
+            });
+        })
+        var Main = Main || {};
+        jQuery(window).load(function () {
+            window.responsiveFlag = jQuery('#responsiveFlag').css('display');
+            Main.gallery = new Gallery();
+            jQuery(window).resize(function () {
+                Main.gallery.update();
+            });
+        });
+        function Gallery() {
+            var self = this,
+                container = jQuery('.flexslider'),
+                clone = container.clone(false);
+            this.init = function () {
+                if (responsiveFlag == 'block') {
+                    var slides = container.find('.slides');
+                    slides.kwicks({
+                        max: 500,
+                        spacing: 0
+                    }).find('li > a').click(function () {
+                        return false;
+                    });
+                } else {
+                    container.flexslider();
+                }
+            }
+            this.update = function () {
+                var currentState = jQuery('#responsiveFlag').css('display');
+                if (responsiveFlag!= currentState) {
+                    responsiveFlag = currentState;
+                    container.replaceWith(clone);
+                    container = clone;
+                    clone = container.clone(false);
+                    this.init();
+                }
+            }
+            this.init();
+        }
+    </script>
+    <style>
+     .item img {
+            width: auto;
+            height: 150px;
+            transition: all 0.3s ease;
+        }
+
+        /* 鼠标悬停时放大图片 */
+     .item img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body class="page1" id="top">
+    <header>
+        <div class="clear"></div>
+        <div class="container_12">
+            <div class="grid_12">
+                <h1>
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </h1>
+                <div class="menu_block">
+                    <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                        <ul class="sf-menu">
+                            <li><a href="index.html">泰山</a></li>
+                            <li><a href="index-1.html">衡山</a></li>
+                            <li><a href="index-2.html">恒山</a></li>
+                            <li><a href="index-3.html">嵩山 </a></li>
+                            <li class="current"><a href="index-4.html">华山</a></li>
+                        </ul>
+                    </nav>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <!--==============================Content=================================-->
+        <div class="content">
+            <div class="ic"></div>
+            <div class="container_12">
+                <div class="grid_8">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="images/hua1_1.jpg" alt="" width="595" height="310">
+                            </li>
+                            <li>
+                                <img src="images/hua1_2.jpg" alt="" width="595" height="310">
+                            </li>
+                            <li>
+                                <img src="images/hua1_3.jpg" alt="" width="595" height="310">
+                            </li>
+
+                        </ul>
+                    </div>
+                    <span id="responsiveFlag"></span>
+                </div>
+                <div class="grid_4">
+                    <a href="#" class="profile">简介</a>
+                    <div class="text1">西岳华山</div>
+                    <p>华山位于陕西省华阴市境内，是五岳中的西岳，以奇险著称。华山南接秦岭，北瞰黄渭，自古以来就有“奇险天下第一山”的说法。华山由一块完整硕大的花岗岩体构成，其主峰有南峰“落雁”、东峰“朝阳”、西峰“莲花”、北峰“云台”、中峰“玉女”五座山峰，海拔最高的南峰为2154.9米，诸峰罗列，各具特色，景色壮美。</p>
+                    <p>华山拥有丰富的自然景观和人文景观。这里山势峻峭，壁立千仞，峡谷幽深，山路艰险。同时，山上保存着众多的古建筑，如玉泉院、都龙庙、东道院、镇岳宫等，这些建筑与华山的自然景观相得益彰。</p>
+                    <hr>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">自然景观</div>
+                        <div class="pad">
+                            华山自然景观以奇险壮丽闻名。四季景色皆有独特韵味，春日山花烂漫，点缀于悬崖峭壁之间；夏日云雾缭绕，山峰若隐若现，宛如仙境；秋日天高云淡，满山红叶似火；冬日雪后初晴，银装素裹，更显山势雄伟。华山的山峰如刀削斧劈，悬崖绝壁令人胆寒，而山间的奇松怪石，又为其增添了几分神秘色。<div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">历史文化</div>
+                        <div class="pad">
+                            华山历史文化悠久深厚。它是华夏文明的发祥地之一，承载着丰富的历史记忆。众多神话传说，如沉香劈山救母等，使其充满神秘色彩。自古以来，华山就是文人墨客、帝王将相向往之地，留下了大量的诗词歌赋、碑刻遗迹。同时，华山的道教文化源远流长，山上道观众多，宗教活动频繁，展现了中国传统文化。 <div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">人文景观</div>
+                        <div class="pad">
+                            华山的人文景观别具一格。玉泉院是华山道教活动的主要场所之一，建筑古朴典雅，庭院清幽。长空栈道、鹞子翻身等险道更是华山人文景观的独特元素，它们不仅是登山的挑战之路，更体现了古人的智慧和勇气。山上的庙宇建筑，如都龙庙、东道院、镇岳宫等，与华山的自然风貌相互映衬，展现出独特的魅力。 <div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block2 maxheight">
+                        <div class="title">旅游价值</div>
+                        <div class="pad">
+                            华山是极具魅力的旅游胜地。对于喜欢挑战的游客来说，攀登华山是一次难忘的体验，可以锻炼身体，磨炼意志，领略奇险之美。华山丰富的文化内涵和独特的人文景观，能让游客深入了解华夏文明和道教文化。这里也是休闲度假的好去处，能让人们在壮丽的自然环境中放松身心，缓解压力。 <div
+                                class="alright"><a href="#" onclick="return false;" class="btn">更多</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_12">
+                    <h2>经典景观</h2>
+                    <div id="owl">
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/hua1_4.jpg" alt="" height="170"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/hua1_5.jpg" alt="" height="180"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/hua1_6.jpg" alt="" height="190"></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" onclick="return false;"><img src="images/hua1_7.jpg" alt="" height="200"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="copy">
+                &copy; Copyright &copy; 2024 zz
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
